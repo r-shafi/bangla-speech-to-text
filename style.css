@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  padding: 1rem;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.live {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #0001;
+  border-radius: 1rem;
+}
+
+.list {
+  position: relative;
+  border: 1px solid #0001;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.list ul {
+  list-style: none;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.list ul li {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.list ul li:hover {
+  background: #0001;
+  border-radius: 0.5rem;
+}
+
+.list p {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.speech {
+  font-size: 3rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+}
+
+a {
+  color: #e71d36;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.shafi {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  color: #343a40;
+}
