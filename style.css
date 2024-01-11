@@ -42,11 +42,44 @@ body {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list ul li span {
+  flex: 1;
+}
+
+.list ul li div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.list ul li div button {
+  border: none;
+  background: none;
   cursor: pointer;
+  outline: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.list ul li div button:hover,
+.list ul li div button:focus {
+  background: #0001;
+}
+
+.list ul li div img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .list ul li:hover {
-  background: #0001;
+  background: #00000005;
   border-radius: 0.5rem;
 }
 
