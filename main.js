@@ -13,16 +13,19 @@ recognition.addEventListener('result', (e) => {
   paragraph.innerText = e.results[0][0].transcript;
 
   const li = document.createElement('li');
-  li.innerText = paragraph.innerText;
-  li.addEventListener('click', () => {
-    const text = paragraph.innerText;
 
-    if (!navigator.clipboard) {
-      return;
-    }
+  li.innerHTML = `
+    <span>${paragraph.innerText}</span>
+    <div>
+      <button class="copy">
+        <img src="assets/copy.svg" alt="" />
+      </button>
+      <button class="delete">
+        <img src="assets/trash.svg" alt="" />
+      </button>
+    </div>
+  `;
 
-    navigator.clipboard.writeText(text);
-  });
   list.appendChild(li);
 });
 
