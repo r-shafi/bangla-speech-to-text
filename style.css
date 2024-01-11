@@ -76,6 +76,7 @@ body {
 .list ul li div img {
   width: 1.5rem;
   height: 1.5rem;
+  pointer-events: none;
 }
 
 .list ul li:hover {
