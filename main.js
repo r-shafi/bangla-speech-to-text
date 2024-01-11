@@ -32,3 +32,18 @@ recognition.addEventListener('result', (e) => {
 recognition.addEventListener('end', recognition.start);
 
 recognition.start();
+
+window.addEventListener('click', (e) => {
+  if (e.target.classList.contains('copy')) {
+    const text =
+      e.target.parentElement.parentElement.querySelector('span').innerText;
+
+    if (!navigator.clipboard) {
+      return;
+    }
+
+    navigator.clipboard.writeText(text);
+  } else if (e.target.classList.contains('delete')) {
+    e.target.parentElement.parentElement.remove();
+  }
+});
