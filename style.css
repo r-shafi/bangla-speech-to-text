@@ -29,6 +29,7 @@ body {
   border: 1px solid #0001;
   padding: 1rem;
   border-radius: 1rem;
+  overflow: hidden;
 }
 
 .list ul {
