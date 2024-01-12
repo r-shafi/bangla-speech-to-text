@@ -29,6 +29,8 @@ recognition.addEventListener('result', (e) => {
 
   const li = document.createElement('li');
 
+  li.setAttribute('data-id', Date.now());
+
   li.innerHTML = createListItem(paragraph.innerText);
 
   list.appendChild(li);
@@ -56,7 +58,10 @@ window.addEventListener('click', (e) => {
 
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
-    bookmarks.push(text);
+    bookmarks.push({
+      id: e.target.parentElement.parentElement.dataset.id,
+      text,
+    });
 
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
@@ -68,7 +73,9 @@ window.addEventListener('DOMContentLoaded', () => {
   bookmarks.forEach((bookmark) => {
     const li = document.createElement('li');
 
-    li.innerHTML = createListItem(bookmark);
+    li.setAttribute('data-id', bookmark.id);
+
+    li.innerHTML = createListItem(bookmark.text);
 
     list.appendChild(li);
   });
