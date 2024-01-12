@@ -73,6 +73,11 @@ body {
   background: #0001;
 }
 
+.list ul li div button.bookmarked {
+  background: #e4acbd;
+  background: linear-gradient(135deg, #e4acbd50, #086cd850);
+}
+
 .list ul li div img {
   width: 1.5rem;
   height: 1.5rem;
