@@ -52,10 +52,35 @@ window.addEventListener('click', (e) => {
     const text =
       e.target.parentElement.parentElement.querySelector('span').innerText;
 
-    const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '') || [];
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
     bookmarks.push(text);
 
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+
+  bookmarks.forEach((bookmark) => {
+    const li = document.createElement('li');
+
+    li.innerHTML = `
+      <span>${bookmark}</span>
+      <div>
+        <button class="copy" title="Copy to Clipboard">
+          <img src="assets/copy.svg" alt="copy" />
+        </button>
+        <button class="bookmark" title="Bookmark for Later">
+          <img src="assets/bookmark.svg" alt="" />
+        </button>
+        <button class="delete" title="Delete from List">
+          <img src="assets/trash.svg" alt="delete" />
+        </button>
+      </div>
+    `;
+
+    list.appendChild(li);
+  });
 });
