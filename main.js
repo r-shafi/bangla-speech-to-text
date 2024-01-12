@@ -17,11 +17,11 @@ recognition.addEventListener('result', (e) => {
   li.innerHTML = `
     <span>${paragraph.innerText}</span>
     <div>
-      <button class="copy">
-        <img src="assets/copy.svg" alt="" />
+      <button class="copy" title="Copy to Clipboard">
+        <img src="assets/copy.svg" alt="copy" />
       </button>
-      <button class="delete">
-        <img src="assets/trash.svg" alt="" />
+      <button class="delete" title="Delete from List">
+        <img src="assets/trash.svg" alt="delete" />
       </button>
     </div>
   `;
