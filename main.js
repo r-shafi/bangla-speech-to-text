@@ -1,6 +1,21 @@
 const paragraph = document.querySelector('.speech');
 const list = document.querySelector('ul');
 
+const createListItem = (text) => `
+  <span>${text}</span>
+  <div>
+    <button class="copy" title="Copy to Clipboard">
+      <img src="assets/copy.svg" alt="copy" />
+    </button>
+    <button class="bookmark" title="Bookmark for Later">
+      <img src="assets/bookmark.svg" alt="bookmark" />
+    </button>
+    <button class="delete" title="Delete from List">
+      <img src="assets/trash.svg" alt="delete" />
+    </button>
+  </div>
+`;
+
 window.SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -14,20 +29,7 @@ recognition.addEventListener('result', (e) => {
 
   const li = document.createElement('li');
 
-  li.innerHTML = `
-    <span>${paragraph.innerText}</span>
-    <div>
-      <button class="copy" title="Copy to Clipboard">
-        <img src="assets/copy.svg" alt="copy" />
-      </button>
-      <button class="bookmark" title="Bookmark for Later">
-        <img src="assets/bookmark.svg" alt="" />
-      </button>
-      <button class="delete" title="Delete from List">
-        <img src="assets/trash.svg" alt="delete" />
-      </button>
-    </div>
-  `;
+  li.innerHTML = createListItem(paragraph.innerText);
 
   list.appendChild(li);
 });
@@ -66,20 +68,7 @@ window.addEventListener('DOMContentLoaded', () => {
   bookmarks.forEach((bookmark) => {
     const li = document.createElement('li');
 
-    li.innerHTML = `
-      <span>${bookmark}</span>
-      <div>
-        <button class="copy" title="Copy to Clipboard">
-          <img src="assets/copy.svg" alt="copy" />
-        </button>
-        <button class="bookmark" title="Bookmark for Later">
-          <img src="assets/bookmark.svg" alt="" />
-        </button>
-        <button class="delete" title="Delete from List">
-          <img src="assets/trash.svg" alt="delete" />
-        </button>
-      </div>
-    `;
+    li.innerHTML = createListItem(bookmark);
 
     list.appendChild(li);
   });
