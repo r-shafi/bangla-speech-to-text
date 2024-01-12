@@ -20,6 +20,9 @@ recognition.addEventListener('result', (e) => {
       <button class="copy" title="Copy to Clipboard">
         <img src="assets/copy.svg" alt="copy" />
       </button>
+      <button class="bookmark" title="Bookmark for Later">
+        <img src="assets/bookmark.svg" alt="" />
+      </button>
       <button class="delete" title="Delete from List">
         <img src="assets/trash.svg" alt="delete" />
       </button>
@@ -45,5 +48,14 @@ window.addEventListener('click', (e) => {
     navigator.clipboard.writeText(text);
   } else if (e.target.classList.contains('delete')) {
     e.target.parentElement.parentElement.remove();
+  } else if (e.target.classList.contains('bookmark')) {
+    const text =
+      e.target.parentElement.parentElement.querySelector('span').innerText;
+
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '') || [];
+
+    bookmarks.push(text);
+
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
 });
